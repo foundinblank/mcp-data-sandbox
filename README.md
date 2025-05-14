@@ -5,7 +5,7 @@
 [![dlt](https://img.shields.io/badge/dlt-Latest-green)](https://dlthub.com/)
 [![MCP](https://img.shields.io/badge/MCP-Enabled-purple)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
 
-A quick start guide to setting up a minimal data stack using dlt and DuckDB, and then leveraging DuckDB's MCP server for SQL operations.
+A quick start guide to setting up a minimal data stack using [dlt](https://dlthub.com/) and [DuckDB](https://duckdb.org/), and then leveraging the [DuckDB MCP server](https://github.com/motherduckdb/mcp-server-motherduck) with [VSCode + GitHub Copilot](https://github.com/features/copilot) for AI-powered SQL operations.
 
 This guide will help you:
 1. Quickly set up dlt and DuckDB.
@@ -13,10 +13,9 @@ This guide will help you:
 3. Connect GitHub Copilot to your DuckDB data using a MCP server.
 
 **Prerequisites:** 
-* VSCode. [MCP Server should be enabled](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_enable-mcp-support-in-vs-code).
+* VSCode with [MCP Server enabled](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_enable-mcp-support-in-vs-code).
 * GitHub Copilot in VSCode
 * Python 3.9 or higher
-* Git
 
 ## Set Up Your Minimal Data Stack
 
@@ -73,7 +72,7 @@ It's similar to exposing a remote database through a REST API endpoint. Suddenly
 
 Now let’s apply that idea: with [the DuckDB MCP server by MotherDuck](https://github.com/motherduckdb/mcp-server-motherduck), your LLM can power up 💪 with the ability to query DuckDB and MotherDuck databases directly.
 
-1. Create a `.vscode/mcp.json` file. This saves your MCP configuration in your workspace settings (i.e., your project folder) instead of your user settings. 
+1. Create a `.vscode/mcp.json` file. This saves your MCP configuration in your workspace settings (i.e., your project folder) instead of your user settings:
 
     ```bash
     mkdir .vscode
@@ -81,7 +80,7 @@ Now let’s apply that idea: with [the DuckDB MCP server by MotherDuck](https://
     touch mcp.json
     ```
 
-2. Add DuckDB MCP configuration by copy and pasting this code block into `mcp.json`.
+2. Add DuckDB MCP configuration by copy and pasting this code block into `mcp.json`:
 
     ```json
     {
@@ -98,7 +97,7 @@ Now let’s apply that idea: with [the DuckDB MCP server by MotherDuck](https://
     }
     ```
 
-3. **Open a Copilot chat in VSCode** and ask it a question about your DuckDB file. For example:
+3. Open a Copilot chat in VSCode and ask it a question about your DuckDB file. For example:
    - "How many schemas and tables do I have in my DuckDB file?"
    - "Tell me something interesting about the data in my DuckDB file."
    - "Create a query that shows the top 10 chess players by rating."
@@ -108,11 +107,11 @@ Now let’s apply that idea: with [the DuckDB MCP server by MotherDuck](https://
 
 If you encounter issues:
 
-1. **MCP Server not connecting:**
+1. MCP Server not connecting:
     - Ensure MCP support is enabled in VSCode
     - Check that your `mcp.json` file has the correct path to your DuckDB file
     - Restart VSCode and try again
 
-2. **DuckDB file not found:**
+2. DuckDB file not found:
     - Verify that you've run `python chess_pipeline.py` successfully
     - Check the path in your `mcp.json` file
