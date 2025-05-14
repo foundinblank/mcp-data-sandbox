@@ -7,5 +7,6 @@
         "--db-path",
         "${workspaceFolder}/chess_pipeline.duckdb"
       ]
-    }  }
+    }  
+  }
 }
