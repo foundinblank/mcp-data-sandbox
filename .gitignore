@@ -40,7 +40,6 @@ venv.bak/
 
 # Project specific
 secrets.toml
-*.duckdb
 *.wal
 
 # Jupyter Notebook
