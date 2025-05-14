@@ -20,18 +20,18 @@ This guide will help you:
 
 ## Set Up Your Minimal Data Stack
 
-1. **Install [uv](https://docs.astral.sh/uv/):**
+1. Install [uv](https://docs.astral.sh/uv/):
     ```bash
     curl -LsSf https://astral.sh/uv/install.sh | sh
     ```
 
-2. **Create and navigate to your project directory:**
+2. Create and navigate to your project directory:
     ```bash
     mkdir mcp-data-sandbox
     cd mcp-data-sandbox
     ```
 
-3. **Initialize a new project, create a virtual environment, and install dependencies:**
+3. Initialize a new project, create a virtual environment, and install dependencies:
     ```bash
     uv init
     uv venv
@@ -41,37 +41,39 @@ This guide will help you:
     uv sync
     ```
 
-4. **Set up a dlt pipeline to ingest Chess.com data into DuckDB:**
+4. Set up a dlt pipeline to ingest Chess.com data into DuckDB:
     ```bash
     dlt init chess duckdb
     ```
 
-5. **Run the data load job. You should see a new `chess_pipeline.duckdb` file appear in your directory:**
+5. Run the data load job. You should see a new `chess_pipeline.duckdb` file appear in your directory:
     ```bash
     python chess_pipeline.py
     ```
 
-6. **Explore your dataset using DuckDB's GUI:**
+6. Explore your dataset using DuckDB's GUI:
     ```bash
     duckdb chess_pipeline.duckdb -ui
     ```
     For a CLI-based option, see [harlequin](https://harlequin.sh/).
 
-Now you have data to work with. While LLMs can help you write queries, they don't natively interface with DuckDB.
+Now you have data to work with. While LLMs can help you write code and queries, they don't natively interface with DuckDB. Let's fix that by using a MCP server!
 
 ## Set Up the MCP Server
 
-MCP servers act as standardized interfaces (like REST APIs) that allow LLMs to access and interact with external tools such as DuckDB. 
+MCP servers are standardized interfaces (like REST APIs) that let large language models (LLMs) interact [with external tools such as DuckDB or Figma or Chrome](https://github.com/punkpeye/awesome-mcp-servers). 
 
-Many LLM-based apps already use proprietary solutions to help LLMs do this. For example, GitHub Copilot in VSCode can access your workplace files and monitor your terminal, and the ChatGPT desktop app for macOS can access content in other apps like Notes or Terminal. 
+Today, many LLM-powered apps use proprietary solutions to achieve this. For example, GitHub Copilot in VS Code can access your files and monitor your terminal. The ChatGPT desktop app for macOS can read content from apps like Notes or Terminal.
 
-But those are proprietary. MCP provides an open, programmable standard for enabling these integrations. 
+MCP is different. It’s open, programmable, and designed to be a standard. It gives LLMs a consistent way to integrate with external systems—-without vendor lock-in.
 
-Think of it as a power-up 🍄 for your LLM. Without power-ups, LLMs are fundamentally restricted to only understanding and interfacing with their immediate environment; by using MCP servers, you allow LLMs to "agentically" access other contexts. 
+Think of it as a power-up 🍄 for your LLM. Without MCP, LLMs are boxed into their immediate environment. By using MCP servers, LLMs gain the ability to "agentically" access other tools, systems, or data sources. 
 
-Let's enable your LLM to work directly with your DuckDB file using [this MCP server by MotherDuck](https://github.com/motherduckdb/mcp-server-motherduck). 
+It's similar to exposing a remote database through a REST API endpoint. Suddenly, your data becomes accessible to any app or user (with the right credentials), and the possibilities multiply.
 
-1. **Create a .vscode/mcp.json file.** This saves your MCP configuration in your workspace settings (i.e., your project folder) instead of your user settings. 
+Now let’s apply that idea: with [the DuckDB MCP server by MotherDuck](https://github.com/motherduckdb/mcp-server-motherduck), your LLM can power up 💪 with the ability to query DuckDB and MotherDuck databases directly.
+
+1. Create a `.vscode/mcp.json` file. This saves your MCP configuration in your workspace settings (i.e., your project folder) instead of your user settings. 
 
     ```bash
     mkdir .vscode
