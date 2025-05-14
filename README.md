@@ -5,7 +5,7 @@
 [![dlt](https://img.shields.io/badge/dlt-Latest-green)](https://dlthub.com/)
 [![MCP](https://img.shields.io/badge/MCP-Enabled-purple)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers)
 
-A quick start guide to setting up a minimal data stack using [dlt](https://dlthub.com/) and [DuckDB](https://duckdb.org/), and then leveraging the [DuckDB MCP server](https://github.com/motherduckdb/mcp-server-motherduck) with [VSCode + GitHub Copilot](https://github.com/features/copilot) for AI-powered SQL operations.
+A quick start guide to setting up a minimal data stack using [dlt](https://dlthub.com/) and [DuckDB](https://duckdb.org/), and then leveraging the [DuckDB MCP server](https://github.com/motherduckdb/mcp-server-motherduck) with [VSCode + GitHub Copilot](https://github.com/features/copilot) for AI-powered SQL operations. Written as a companion to my [MCP Servers for Dummies blog post](https://foundinblank.hashnode.dev/mcp-servers-for-dummies). 
 
 This guide will help you:
 1. Quickly set up dlt and DuckDB.
