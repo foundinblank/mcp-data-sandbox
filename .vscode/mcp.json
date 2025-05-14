@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "motherduck": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-motherduck",
+        "--db-path",
+        "${workspaceFolder}/chess_pipeline.duckdb"
+      ]
+    }  }
+}
